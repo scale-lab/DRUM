@@ -32,7 +32,7 @@ Computer-Aided Design (ICCAD). 2015.
 
 */
 
-module DRUMk_N_M (a, b, r);
+module DRUMk_M_N_s (a, b, r);
 
 parameter k = 6;
 parameter n = 16;
@@ -57,8 +57,6 @@ dsmk_mn #(k, n, m) U1 (.a(a_temp), .b(b_temp), .r(r_temp));
 assign r=(out_sign)?~r_temp:r_temp;
 
 endmodule
-
-//--------------------------DRUM6 MODULE ----------
 
 module dsmk_mn(a, b, r);
 
@@ -163,17 +161,6 @@ output reg [k_in-3:0]out;
 parameter k_in = 6;
 parameter n_in = 16;
 
-/*
-genvar i;
-generate
-    for (i = k_in;i<(n_in);i=i+1) begin :mux_gen_block
-        always @(*) begin
-            //$display("%d %d %d", i, i[$clog2(n_in):0]-1, i[$clog2(n_in):0]-(k_in-2));
-            if (select == i[$clog2(n_in)-1:0]) out = in_a[i[$clog2(n_in):0]-1: i[$clog2(n_in):0]-(k_in-2)];
-        end
-    end
-endgenerate
-*/
 integer i;
 always @(*) begin
     for (i = k_in;i<(n_in);i=i+1) begin :mux_gen_block
@@ -183,6 +170,3 @@ always @(*) begin
 end
 
 endmodule
-
-/* verilator lint_on DECLFILENAME */
-/* verilator lint_on UNUSED */
