@@ -163,6 +163,7 @@ parameter n_in = 16;
 
 integer i;
 always @(*) begin
+    out = 0;
     for (i = k_in;i<(n_in);i=i+1) begin :mux_gen_block
         if (select == i[$clog2(n_in)-1:0])
             out = in_a[i-1 -: k_in-2];
