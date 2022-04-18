@@ -46,9 +46,9 @@ LOD u2(.in_a(b),.out_a(l2));
 P_Encoder u3(.in_a(l1), .out_a(k1));
 P_Encoder u4(.in_a(l2), .out_a(k2));
 
-ux_16_3 u5(.in_a(a), .select(k1), .out(m));
+Mux_16_3 u5(.in_a(a), .select(k1), .out(m));
 
-ux_16_3 u6(.in_a(b), .select(k2), .out(n));
+Mux_16_3 u6(.in_a(b), .select(k2), .out(n));
 assign p=(k1>3)?k1-3:0;
 assign q=(k2>3)?k2-3:0;
 assign mm=(k1>3)?({1'b1,m,1'b1}):a[3:0];
