@@ -30,7 +30,7 @@ Computer-Aided Design (ICCAD). 2015.
 
 */
 
-module DRUM7_17_u(a, b, r);
+module DRUM7_16_u(a, b, r);
 input [15:0]a,b;
 output [31:0]r;
 
